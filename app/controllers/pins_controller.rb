@@ -7,7 +7,8 @@ class PinsController < ApplicationController
   def index
     @pins = Pin.all.order('created_at DESC')
     unless params[:search].blank?
-      @pins = @pins.where("description like '%#{params[:search]}%'")
+      #@pins = @pins.where("description like '%#{params[:search]}%'")
+      @pins = @pins.where("description like ?", '%' + params[:search] + '%')
     end
   end
 
