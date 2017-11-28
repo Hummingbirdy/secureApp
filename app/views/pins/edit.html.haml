@@ -1,7 +1,12 @@
 #edit_page.col-md-6.col-md-offset-3
   .row
     .panel.panel-default
-      .panel-heading
-        %h1 Edit Your Pin
-      .panel-body
-        = render 'form'
+      - if @pin.user == current_user
+        .panel-heading
+          %h1 Edit Your Pin
+        .panel-body
+          = render 'form'
+      - else
+        .panel-heading
+          .alert.alert-danger
+            ERROR! Access Denied

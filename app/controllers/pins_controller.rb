@@ -24,6 +24,7 @@ class PinsController < ApplicationController
 
   # GET /pins/1/edit
   def edit
+    #@pin = Pin.where("user_id = ? AND id = ?", current_user.id, params[:id])
   end
 
   # POST /pins
